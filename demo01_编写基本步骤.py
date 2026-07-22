@@ -5,11 +5,17 @@ import time
 driver = webdriver.Chrome()
 
 # 3.打开测试网址
-driver.get("https://chat.deepseek.com/")
+driver.get("file:///D:/test/%E9%BB%91%E9%A9%AC24%E8%B5%84%E6%96%99/UI%E8%87%AA%E5%8A%A8%E5%8C%96/web%E7%8E%AF%E5%A2%83/%E6%B3%A8%E5%86%8CA.html")
 
 # 4.暂停3秒 代替测试步骤
 time.sleep(3)
 
+# 使用id定位 输入用户名：admin
+driver.find_element("id", "userA").send_keys("admin")
+# 使用id定位 输入密码：password
+driver.find_element("id", "passwordA").send_keys("password")
+
+time.sleep(3)
 # 5.关闭浏览器
 driver.quit()
 
