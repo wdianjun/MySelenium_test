@@ -12,7 +12,7 @@ time.sleep(3)
 
 # 使用id定位 输入用户名：admin
 driver.find_element("id", "userA").send_keys("admin")
-# 使用id定位 输入密码：password
+# 使用id定位 输入密码：passwordgit
 driver.find_element("id", "passwordA").send_keys("password")
 
 time.sleep(3)
