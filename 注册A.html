@@ -11,6 +11,24 @@
 		button:hover{padding: 10px; background: #2F4F4F}
 		input:focus{background: #FFC0CB}
 		#span1{display: none}
+		#backToTop{
+			display: none;
+			position: fixed;
+			right: 24px;
+			bottom: 24px;
+			z-index: 1000;
+			padding: 10px 14px;
+			border: 1px solid #2F4F4F;
+			border-radius: 5px;
+			background: #ffffff;
+			color: #2F4F4F;
+			cursor: pointer;
+		}
+		#backToTop:hover{
+			padding: 10px 14px;
+			background: #2F4F4F;
+			color: #ffffff;
+		}
 		/*span{display: none}*/
 	</style>
 	<script type="text/javascript">
@@ -47,6 +65,30 @@
 				<label for="emailB">textB：</label>
 				<input type="emailA" name="emailB" id="emailB" placeholder="textB" value="" class="c1 c2 c3">				
 			</p>
+			<p id="p2">
+				<label for="emailA">textA：</label>
+				<input type="emailA" name="emailA" id="emailA" placeholder="textA" value="" class="c1 c2 c3">				
+			</p>
+			<p id="p3">
+				<label for="emailB">textB：</label>
+				<input type="emailA" name="emailB" id="emailB" placeholder="textB" value="" class="c1 c2 c3">				
+			</p>
+			<p id="p2">
+				<label for="emailA">textA：</label>
+				<input type="emailA" name="emailA" id="emailA" placeholder="textA" value="" class="c1 c2 c3">				
+			</p>
+			<p id="p3">
+				<label for="emailB">textB：</label>
+				<input type="emailA" name="emailB" id="emailB" placeholder="textB" value="" class="c1 c2 c3">				
+			</p>
+			<p id="p2">
+				<label for="emailA">textA：</label>
+				<input type="emailA" name="emailA" id="emailA" placeholder="textA" value="" class="c1 c2 c3">				
+			</p>
+			<p id="p3">
+				<label for="emailB">textB：</label>
+				<input type="emailA" name="emailB" id="emailB" placeholder="textB" value="" class="c1 c2 c3">				
+			</p>
 				
 					<button type="submitA" value="注册A" title="加入会员A">注册用户A</button>
 					<button type="submitA" value="取消" title="加入会员A" disabled="disable">取消</button>
@@ -65,10 +107,52 @@
 				<p><a href="http://www.baidu.com" id="fwB">访问 百度 网站</a></p>
 				<hr>
 			<p><span><strong>黑马.软件测试！</strong></span></p>
+			<p id="delayedInputContainer">这是一个延时加载的输入框</p>
 	<input type="button" value="警告框" id="alerta"   onclick="alert('警告！')">
 	<input type="button" value="确认框" id="confirma" onclick="confirm('确认框')"> 
 	<input type="button" value="输入框" id="prompta"  onclick="prompt('请输入输入支付密码: ','')"> 
 	<br>
-	
+
+<button id="backToTop" type="button" title="Back to top" aria-label="Back to top">&#x8FD4;&#x56DE;&#x9876;&#x90E8;</button>
+
+<script type="text/javascript">
+	setTimeout(function () {
+		var container = document.getElementById('delayedInputContainer');
+		var label = document.createElement('label');
+		var input = document.createElement('input');
+
+		label.htmlFor = 'delayedInput';
+		label.textContent = '延时输入框：';
+		input.type = 'text';
+		input.id = 'delayedInput';
+		input.name = 'delayedInput';
+		input.placeholder = '请输入内容';
+
+		container.textContent = '';
+		container.appendChild(label);
+		container.appendChild(input);
+	}, 3000);
+
+	(function () {
+		var backToTop = document.getElementById('backToTop');
+
+		function updateBackToTopVisibility() {
+			var documentHeight = Math.max(
+				document.body.scrollHeight,
+				document.documentElement.scrollHeight
+			);
+			var isAtBottom = window.pageYOffset + window.innerHeight >= documentHeight - 2;
+			backToTop.style.display = isAtBottom ? 'block' : 'none';
+		}
+
+		backToTop.addEventListener('click', function () {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
+
+		window.addEventListener('scroll', updateBackToTopVisibility);
+		window.addEventListener('resize', updateBackToTopVisibility);
+		updateBackToTopVisibility();
+	}());
+</script>
 </body>
 </html>
