@@ -16,7 +16,9 @@ driver = webdriver.Chrome(service=service)
 
 # 3.打开测试网址
 driver.get("file:///D:/test/%E9%BB%91%E9%A9%AC24%E8%B5%84%E6%96%99/UI%E8%87%AA%E5%8A%A8%E5%8C%96/web%E7%8E%AF%E5%A2%83/%E6%B3%A8%E5%86%8CA.html")
-
+# 最大化窗口
+time.sleep(1)
+driver.maximize_window()
 # 4.暂停1秒 
 time.sleep(1)
 # 获取账户输入框大小
